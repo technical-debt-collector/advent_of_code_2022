@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 
 
-public class Day7Part1 extends Puzzle {
+public class Day7Part2 extends Puzzle {
 
     public static void main(String[] args) throws IOException {
         var pattern = Pattern.compile("(\\$\\s.+[^$]*)");
@@ -35,6 +35,6 @@ public class Day7Part1 extends Puzzle {
             }
         }
         System.out.println("root: " + map.get("root"));
-        map.values().stream().filter(v -> v < 100000).reduce(Integer::sum).ifPresent(System.out::println);
+        map.values().stream().filter(v -> v >= 30000000-(70000000-map.get("root"))).min(Integer::compareTo).ifPresent(System.out::println);
     }
 }
